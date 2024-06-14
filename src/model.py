@@ -13,7 +13,7 @@ from torch import nn
 import torchvision
 
 from transmission_model import TransmissionModel
-from residual_model import ResidualBlock, ResidualModel
+from notebooks.residual_model import ResidualBlock, ResidualModel
 
 class Model(nn.Module):
     """
