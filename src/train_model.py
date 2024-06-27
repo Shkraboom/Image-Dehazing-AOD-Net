@@ -4,14 +4,15 @@ import torch
 import torch.nn as nn
 import torch.utils
 import torchvision
-import torch.backends.cudnn as cudnn
 import torch.optim as optim
 
-import numpy as np
 from model import DehazeModel
 import dataloader
 
 def weights_init(m):
+    """
+    Initialize weights
+    """
     classname = m.__class__.__name__
 
     if classname.find('Conv') != -1:
@@ -21,11 +22,14 @@ def weights_init(m):
         m.bias.data.fill_(0)
 
 def train(config):
+    """
+    Train function
+    """
     model = DehazeModel().cuda()
     model.apply(weights_init)
 
-    train_dataset = dataloader.DehazingLoader(config['clear_images_path'], config['hazy_images_path'])
-    val_dataset = dataloader.DehazingLoader(config['clear_images_path'], config['hazy_images_path'], mode = 'val')
+    train_dataset = dataloader.DehazingLoader(config['orig_images_path'], config['hazy_images_path'])
+    val_dataset = dataloader.DehazingLoader(config['orig_images_path'], config['hazy_images_path'], mode ='val')
 
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size = config['train_batch_size'], shuffle = True, num_workers = config['num_workers'], pin_memory = True)
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size = config['val_batch_size'], shuffle = True, num_workers = config['num_workers'], pin_memory = True)
@@ -70,7 +74,6 @@ def train(config):
         torch.save(model.state_dict(), os.path.join(config['weights_folder'], "dehazer.pt"))
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type = str, default = 'config.json')
     args = parser.parse_args()

@@ -1,6 +1,6 @@
 {
-    "orig_images_path": "path/to/clear images/",
-    "hazy_images_path": "path/to/hazy images/",
+    "orig_images_path": "/path/to/orig/folder/",
+    "hazy_images_path": "/path/to/hazy/folder",
     "lr": 0.0001,
     "weight_decay": 0.0001,
     "grad_clip_norm": 0.1,
@@ -10,6 +10,6 @@
     "num_workers": 4,
     "display_iter": 10,
     "snapshot_iter": 200,
-    "weights_folder": "path/to/weights folder/",
-    "examples_folder": "path/to/examples_folder/"
+    "weights_folder": "/path/to/weights/folder/",
+    "examples_folder": "/path/to/examples/folder"
   }
