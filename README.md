@@ -40,7 +40,7 @@ As a result, in spite of a small number of epochs, the result is excellent. The 
 ![example_2.jpg](https://github.com/Shkraboom/Image-Dehazing/blob/main/data/examples/example_2.jpg)
 ![example_3.jpg](https://github.com/Shkraboom/Image-Dehazing/blob/main/data/examples/example_3.jpg)
 
-## Инференс модели
+## Inference
 The model inference was performed in C++ 17 using the TensorRT framework version 10.1. The build also includes OpenCV 4.10, CUDA 12.3 and cuDNN 9.2. For inference, the model has been ported to ONNX format. Using such tools allows the model to run faster than running it in PyTorch, as well as more detailed memory handling if the model is embedded in a loaded service. Comparison of PyTorch and TensorRT throughput:
 
 ![tensorrt_vs_pytorch.png](https://github.com/Shkraboom/Image-Dehazing/blob/main/data/examples/tensorrt_vs_pytorch.png)
