@@ -1,4 +1,4 @@
-# Image-Dehazing
+# Image-Dehazing-AOD-Net
 Project on solving the problem of image dehazing using neural networks
 
 ## Terms of reference
